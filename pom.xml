@@ -162,7 +162,7 @@
             <groupId>org.scijava</groupId>
             <artifactId>scripting-scala</artifactId>
             <scope>runtime</scope>
-            <version>0.3.0</version>
+            <version>0.3.1</version>
         </dependency>
     </dependencies>
 
