@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>script-editor-scala</artifactId>
-    <version>0.1.1-SNAPSHOT</version>
+    <version>0.2.0</version>
 
     <name>Scala Script Editor plugin</name>
     <description>Scala language support for SciJava Script Editor.</description>
@@ -52,7 +52,7 @@
     <scm>
         <connection>scm:git:git://github.com/scijava/script-editor-scala</connection>
         <developerConnection>scm:git:git@github.com:scijava/script-editor-scala</developerConnection>
-        <tag>HEAD</tag>
+        <tag>script-editor-scala-0.2.0</tag>
         <url>https://github.com/scijava/script-editor-scala</url>
     </scm>
     <issueManagement>
