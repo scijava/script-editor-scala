@@ -1,3 +1,5 @@
+[![Build Status](https://github.com/scijava/script-editor-scala/actions/workflows/build.yml/badge.svg)](https://github.com/scijava/script-editor-scala/actions/workflows/build.yml)
+
 # script-editor-scala
 
 Scala language support for SciJava Script Editor
