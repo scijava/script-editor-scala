@@ -33,6 +33,7 @@ import org.jline.reader.Candidate
 import org.scijava.log.{LogLevel, LogService}
 
 import java.io.{OutputStream, PrintStream, Writer}
+import java.net.URLClassLoader
 
 /**
  * @author Jarek Sacha
@@ -54,13 +55,22 @@ object ScalaReplCompleter:
       if logService.isLevel(logLevel) then
         writer.write(b, off, len)
 
+  /**
+   * Retrieves the current classpath as a string.
+   */
+  def classPath: String = ClassLoader.getSystemClassLoader match
+    case cl: URLClassLoader =>
+      cl.getURLs.map(_.getPath).mkString(System.getProperty("path.separator"))
+    case _ =>
+      System.getProperty("java.class.path")
+
 end ScalaReplCompleter
 
 /**
  * @author Jarek Sacha
  */
 class ScalaReplCompleter(logService: LogService):
-  import ScalaReplCompleter.LevelOutputStream
+  import ScalaReplCompleter.*
 
   // Auto-completion may be parsing incorrect code, no need to print parsing errors, unless `Trace` debug level is set
   private val out    = new PrintStream(new LevelOutputStream(logService))
@@ -69,7 +79,8 @@ class ScalaReplCompleter(logService: LogService):
   private val driver =
     new AutoCompleteReplDriver(
       Array(
-        //        "-classpath", "", // Avoid the default "."
+        "-classpath",
+        ScalaReplCompleter.classPath,
         "-usejavacp",
         "-color:never",
         "-Xrepl-disable-display",
