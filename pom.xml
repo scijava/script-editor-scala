@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>script-editor-scala</artifactId>
-    <version>0.2.1-SNAPSHOT</version>
+    <version>0.2.2-SNAPSHOT</version>
 
     <name>Scala Script Editor plugin</name>
     <description>Scala language support for SciJava Script Editor.</description>
