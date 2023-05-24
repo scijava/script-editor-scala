@@ -34,11 +34,23 @@ import org.scijava.log.{LogLevel, LogService}
 
 import java.io.{OutputStream, PrintStream, Writer}
 import java.net.URLClassLoader
+import java.nio.file.Paths
 
 /**
  * @author Jarek Sacha
  */
 object ScalaReplCompleter:
+
+  /**
+   * Retrieves the current classpath as a string.
+   */
+  def classPath: String = ClassLoader.getSystemClassLoader match
+    case cl: URLClassLoader =>
+      cl.getURLs
+        .map(url => Paths.get(url.toURI).toString)
+        .mkString(System.getProperty("path.separator"))
+    case _ =>
+      System.getProperty("java.class.path")
 
   private final class LevelOutputStream(logService: LogService) extends OutputStream:
 
@@ -54,15 +66,6 @@ object ScalaReplCompleter:
     override def write(b: Array[Byte], off: Int, len: Int): Unit =
       if logService.isLevel(logLevel) then
         writer.write(b, off, len)
-
-  /**
-   * Retrieves the current classpath as a string.
-   */
-  def classPath: String = ClassLoader.getSystemClassLoader match
-    case cl: URLClassLoader =>
-      cl.getURLs.map(_.getPath).mkString(System.getProperty("path.separator"))
-    case _ =>
-      System.getProperty("java.class.path")
 
 end ScalaReplCompleter
 
