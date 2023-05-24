@@ -74,7 +74,7 @@
 
         <script-editor.version>1.0.0</script-editor.version>
 
-        <scala.version>3.2.2</scala.version>
+        <scala.version>3.3.0</scala.version>
     </properties>
 
 
@@ -162,7 +162,7 @@
             <groupId>org.scijava</groupId>
             <artifactId>scripting-scala</artifactId>
             <scope>runtime</scope>
-            <version>0.3.1</version>
+            <version>0.3.2</version>
         </dependency>
     </dependencies>
 
