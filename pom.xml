@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.scijava</groupId>
         <artifactId>pom-scijava</artifactId>
-        <version>35.1.0</version>
+        <version>45.1.0</version>
         <relativePath />
     </parent>
 
@@ -37,6 +37,7 @@
         <contributor>
             <name>Jarek Sacha</name>
             <properties>
+                <scijava.jvm.version>8</scijava.jvm.version>
                 <id>jpsacha</id>
             </properties>
         </contributor>
