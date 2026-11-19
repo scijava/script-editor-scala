@@ -37,7 +37,6 @@
         <contributor>
             <name>Jarek Sacha</name>
             <properties>
-                <scijava.jvm.version>8</scijava.jvm.version>
                 <id>jpsacha</id>
             </properties>
         </contributor>
@@ -66,6 +65,7 @@
     </ciManagement>
 
     <properties>
+        <scijava.jvm.version>8</scijava.jvm.version>
         <package-name>org.scijava.scala.autocompletion</package-name>
         <license.licenseName>bsd_2</license.licenseName>
         <license.copyrightOwners>SciJava developers.</license.copyrightOwners>
