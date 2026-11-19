@@ -29,16 +29,32 @@
 
     <developers>
         <developer>
+            <id>jpsacha</id>
             <name>Jarek Sacha</name>
+            <roles>
+                <role>founder</role>
+                <role>lead</role>
+                <role>reviewer</role>
+                <role>support</role>
+                <role>maintainer</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>ctrueden</id>
+            <name>Curtis Rueden</name>
+            <url>https://imagej.net/people/ctrueden</url>
+            <roles>
+                <role>maintainer</role>
+            </roles>
         </developer>
     </developers>
-
     <contributors>
         <contributor>
-            <name>Jarek Sacha</name>
-            <properties>
-                <id>jpsacha</id>
-            </properties>
+            <!--
+            NB: Need at least one element to override the parent.
+            See: https://issues.apache.org/jira/browse/MNG-5220
+            -->
+            <name>None</name>
         </contributor>
     </contributors>
 
