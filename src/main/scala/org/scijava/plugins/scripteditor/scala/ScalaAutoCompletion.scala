@@ -36,4 +36,3 @@ import org.fife.ui.autocomplete.{AutoCompletion, CompletionProvider}
  */
 class ScalaAutoCompletion(provider: CompletionProvider) extends AutoCompletion(provider):
   this.setParameterAssistanceEnabled(true)
-  this.setShowDescWindow(false)

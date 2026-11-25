@@ -31,6 +31,7 @@ package org.scijava.plugins.scripteditor.scala;
 import org.fife.rsta.ac.AbstractLanguageSupport;
 import org.fife.ui.autocomplete.AutoCompletion;
 import org.fife.ui.autocomplete.CompletionProvider;
+import org.fife.ui.autocomplete.DescWindowVisibility;
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
 import org.scijava.Priority;
 import org.scijava.log.LogService;
@@ -57,7 +58,7 @@ public class ScalaLanguageSupportPlugin extends AbstractLanguageSupport implemen
     public ScalaLanguageSupportPlugin() {
         setAutoCompleteEnabled(true);
         setParameterAssistanceEnabled(true);
-        setShowDescWindow(false);
+        setDescWindowVisibility(DescWindowVisibility.NEVER);
     }
 
     @Override
@@ -70,7 +71,7 @@ public class ScalaLanguageSupportPlugin extends AbstractLanguageSupport implemen
         this.text_area = textArea;
         this.ac = this.createAutoCompletion(null);
         this.ac.setParameterAssistanceEnabled(false);
-        this.ac.setShowDescWindow(false);
+        this.ac.setDescWindowVisibility(DescWindowVisibility.NEVER);
         this.ac.install(textArea);
         // store upstream
         super.installImpl(textArea, this.ac);

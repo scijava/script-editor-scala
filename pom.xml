@@ -81,7 +81,7 @@
     </ciManagement>
 
     <properties>
-        <scijava.jvm.version>8</scijava.jvm.version>
+        <scijava.jvm.version>11</scijava.jvm.version>
         <package-name>org.scijava.scala.autocompletion</package-name>
         <license.licenseName>bsd_2</license.licenseName>
         <license.copyrightOwners>SciJava developers.</license.copyrightOwners>
@@ -89,9 +89,13 @@
         <!-- NB: Deploy releases to the SciJava Maven repository. -->
         <releaseProfiles>sign,deploy-to-scijava</releaseProfiles>
 
-        <script-editor.version>1.0.0</script-editor.version>
+        <script-editor.version>1.4.4-SNAPSHOT</script-editor.version>
+        <!-- NB: autocomplete and languagesupport must match rsyntaxtextarea's major version. -->
+        <rsyntaxtextarea.version>4.0.1</rsyntaxtextarea.version> <!-- scijava-pom 45.1.0: 3.6.3 -->
+        <autocomplete.version>4.0.0</autocomplete.version> <!-- scijava-pom 45.1.0: 3.3.2 -->
+        <languagesupport.version>4.0.0</languagesupport.version> <!-- scijava-pom 45.1.0: 3.3.0 -->
 
-        <scala.version>3.3.0</scala.version>
+        <scala.version>3.3.6</scala.version>
     </properties>
 
 
@@ -108,7 +112,7 @@
                         <arg>-explain</arg>
                         <arg>-explain-types</arg>
                         <arg>-release</arg>
-                        <arg>8</arg>
+                        <arg>11</arg>
                     </args>
                 </configuration>
                 <executions>
@@ -151,6 +155,18 @@
         <dependency>
             <groupId>com.fifesoft</groupId>
             <artifactId>languagesupport</artifactId>
+            <exclusions>
+                <!--
+                NB: The rhino-all component is mis-packaged:
+                it is an unshaded uberjar of rhino, rhino-tools, and rhino-xml,
+                but it also depends on those three components, resulting in
+                all rhino classes appearing twice on the runtime classpath.
+                -->
+                <exclusion>
+                    <groupId>org.mozilla</groupId>
+                    <artifactId>rhino-all</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.fifesoft</groupId>
